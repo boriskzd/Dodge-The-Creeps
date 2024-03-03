@@ -4,7 +4,6 @@ signal hit # define a custom signal called 'hit', we will emit it when player co
 
 # $AnimatedSprite2D ---> Players animation
 # $CollisionShape2D ---> Players collision
-#
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window
@@ -13,7 +12,7 @@ var screen_size # Size of the game window
 func _ready():
 	print('[Player] - Ready')
 	screen_size = get_viewport_rect().size	
-	#hide() # TODO: uncomment hide()
+	hide() # TODO: uncomment hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -52,8 +51,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	print('[_on_body_entered]')
-	hide() # Player disappears after being hit.
 	hit.emit()
+	hide() # Player disappears after being hit.
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred('disabled', true)
 
