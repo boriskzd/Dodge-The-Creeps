@@ -4,6 +4,7 @@ signal hit # define a custom signal called 'hit', we will emit it when player co
 
 # $AnimatedSprite2D ---> Players animation
 # $CollisionShape2D ---> Players collision
+#
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window
