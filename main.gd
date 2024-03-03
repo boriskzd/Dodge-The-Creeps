@@ -11,6 +11,7 @@ func _process(delta):
 	pass
 
 func game_over():
+	print('game over in main script')
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 
